@@ -1,0 +1,19 @@
+# We will use the official Miniconda image from ContinuumIO as a base image
+FROM continuumio/miniconda3
+
+# Create a working directory
+WORKDIR /app
+
+# Copy the environment.yml file (which you should have saved in the same folder as your Dockerfile) into the docker image
+COPY env_residual_prompt.yaml .
+
+# Use conda to create the environment from the environment.yml file
+RUN conda env create -f env_residual_prompt.yaml
+
+# Make RUN commands use the new environment by default:
+SHELL ["conda", "run", "-n", "nlp", "/bin/bash", "-c"]
+
+# Confirm the environment was successfully created
+RUN echo "Make sure our environment is activated:" \
+    && echo $CONDA_DEFAULT_ENV
+

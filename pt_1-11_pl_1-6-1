@@ -1,0 +1,179 @@
+FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        libsndfile1 \
+        libgl1 libsm6 libxext6 libxrender1 libgtk-3-dev libavcodec-dev libavformat-dev libswscale-dev && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        gcc g++ && \
+    rm -rf /var/lib/apt/lists/*
+
+
+RUN pip install --no-cache-dir \
+        appdirs \
+        argon2-cffi \
+        asn1crypto \
+        astor \
+        async-generator \
+        beautifulsoup4 \
+        bleach \
+        boto3 \
+        botocore \
+        cachecontrol \
+        cffi \
+        click \
+        cloudpickle \
+        colorama \
+        contextlib2 \
+        cryptography \
+        cxxfilt \
+        cython \
+        datasets \
+        demjson \
+	einops \
+        distlib \
+        distro \
+        editdistance \
+        environment-kernels \
+        fasttext \
+        filelock \
+        flake8 \
+        fsspec \
+        fvcore \
+        gast \
+        google-pasta \
+        h5py \
+        html5lib \
+        httplib2 \
+        idna \
+        ipaddr \
+        ipywidgets\
+        jeepney\
+        jinja2\
+        jmespath\
+        joblib\
+        jupyter\
+        jupyter-client\
+        jupyter-console\
+        jupyterlab-pygments\
+        keras\
+        keras-applications\
+        keras-preprocessing\
+        keyring\
+        keyrings-alt\
+        launchpadlib\
+        lazr-restfulclient\
+        lazr-uri\
+        leveldb\
+        lmdb\
+        lockfile\
+        lxml\
+        macaroonbakery\
+        mako\
+        matplotlib\
+        mccabe\
+        mock\
+        msgpack\
+        nbclient\
+        nbconvert\
+        nbformat\
+        nest-asyncio\
+        netifaces\
+        networkx\
+        nltk\
+        nose\
+        nose-parameterized\
+        notebook\
+        numexpr\
+        numpy \
+        requests \
+        rich  
+RUN pip install --no-cache-dir \
+        oauth\
+        omegaconf\
+        opencv-python\
+        pandas-path\
+        parso\
+        pbr\
+        pep517\
+        ply\
+        portalocker\
+        progress\
+        prometheus-client\
+        pyaml\
+        pyarrow\
+        pybind11\
+        pycairo
+RUN pip install --no-cache-dir \
+        pycocotools\
+        pycodestyle\
+        pycparser\
+        pycrypto\
+        pydot\
+        pyflakes\
+        pyinotify\
+        pymacaroons\
+        pynacl\
+        pyopenssl\
+        pyrfc3339\
+        pyrsistent\
+        python-debian\
+        pytoml\
+        pytools
+RUN pip install --no-cache-dir \
+        pytorch-lightning\
+        pytorch-lightning-bolts \
+        transformers\
+        datasets\
+        hydra-core\
+        seqeval\
+        wandb\
+        mwparserfromhell \
+        apache_beam \
+        pywavelets\
+        pyxdg\
+        pyzmq\
+        qtconsole\
+        qtpy\
+        regex\
+        reportlab\
+       ### requests\
+        requests-unixsocket\
+        retrying\
+        s3transfer\
+        sacremoses\
+        scikit-image\
+        scikit-learn\
+        scour\
+        secretstorage\
+        sentencepiece\
+        simplegeneric\
+        simplejson\
+        six\
+        sklearn\
+        soupsieve\
+        ssh-import-id\
+        tables\
+        tabulate\
+        tensorboard\
+        termcolor\
+        testresources \
+        theano \
+        threadpoolctl \
+        tifffile \
+        tokenizers \
+        torchtext \
+        torchvision \
+        tqdm \
+        urllib3 \
+        wadllib \
+        wget \
+        widgetsnbextension \
+        xxhash \
+        yacs \
+        zope-interface
+
+ENV LC_ALL C
+
+LABEL maintainer=akash.cse.du@gmail.com
+ENTRYPOINT ["python"]
